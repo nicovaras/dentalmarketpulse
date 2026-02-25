@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DentalMarketPulse — Berlin Dentist Competitor Report</title>
+  <meta name="description" content="Competitor intelligence report for Berlin dentists: reviews, pricing signals, SEO gaps + 5-point action list." />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Leaflet (map) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- MarkerCluster (many points) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand" style="display:flex; align-items:center; gap:10px">
+        <img src="assets/generated/001-minimal-modern-logo-icon-no-text-tooth-s.webp" alt="DentalMarketPulse" style="height:34px; width:34px; border-radius:10px" />
+        <div id="brand" style="font-weight:800">DentalMarketPulse</div>
+      </div>
+      <div class="lang" aria-label="Language switch">
+        <button class="active" data-lang="de" type="button">DE</button>
+        <button data-lang="en" type="button">EN</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1 id="title">Wettbewerbsreport für Berliner Zahnärzte</h1>
+        <p class="subtitle" id="subtitle">
+          Monatliche Einblicke zu lokalen Wettbewerbern — Bewertungen, Preis-/Angebotssignale und SEO‑Lücken — plus 5 konkrete Handlungsempfehlungen.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" id="ctaTop" href="#form">Beispielreport anfordern</a>
+          <a class="btn" id="ctaMap" href="#mapSection">Wettbewerbs-Landkarte ansehen</a>
+        </div>
+        <div class="ctaRow sampleLinks">
+          <a class="btn" id="sampleBtnEn" href="report/samples/sample-report.html" target="_blank" rel="noreferrer">Sample (EN)</a>
+          <a class="btn" id="sampleBtnDe" href="report/samples/sample-report-de.html" target="_blank" rel="noreferrer">Sample (DE)</a>
+        </div>
+
+        <div class="badges">
+          <span class="badge" id="badge1">Öffentliche Daten</span>
+          <span class="badge" id="badge2">Berlin-fokussiert</span>
+          <span class="badge" id="badge3">5-Punkte-Plan</span>
+        </div>
+
+        <div class="heroVisual" aria-hidden="true">
+          <picture>
+            <source srcset="assets/generated/001-professional-hero-image-for-a-dental-com.webp" type="image/webp" />
+            <img src="assets/hero-illustration.svg" alt="" loading="lazy" />
+          </picture>
+        </div>
+
+        <div class="section">
+          <h2 id="whatTitle">Was Sie bekommen</h2>
+          <ul class="ul" id="whatList"></ul>
+        </div>
+      </div>
+
+      <div class="card form" id="form">
+        <h2 id="formTitle">Beispielreport anfordern</h2>
+        <p class="small" id="formNote">MVP-Formular: action/mailing bitte später ersetzen (Formspree, Getform, Tally, HubSpot etc.).</p>
+
+        <form id="leadForm" method="post" data-form-endpoint="https://formspree.io/f/mqedwngq" data-mailto="hello@dentalmarketpulse.de">
+          <label id="labelClinic" for="clinic">Praxisname</label>
+          <input id="clinic" name="clinic" required />
+
+          <label id="labelWebsite" for="website">Website (optional)</label>
+          <input id="website" name="website" placeholder="https://…" />
+
+          <label id="labelArea" for="area">Stadt/Bezirk</label>
+          <input id="area" name="area" required placeholder="z.B. Prenzlauer Berg" />
+
+          <label id="labelEmail" for="email">Kontakt‑E‑Mail</label>
+          <input id="email" name="email" type="email" required />
+
+          <label id="labelNotes" for="notes">Kurz: Was ist Ihnen wichtig? (optional)</label>
+          <textarea id="notes" name="notes"></textarea>
+
+          <div class="ctaRow">
+            <button class="btn primary" id="submitBtn" type="submit">Anfrage senden</button>
+            <a class="btn" id="ctaBottom" href="#form">Beispielreport anfordern</a>
+          </div>
+        </form>
+
+        <!-- Nice confirmation modal -->
+        <div id="confirmModal" class="modal" aria-hidden="true">
+          <div class="modalContent">
+            <button class="modalClose" id="modalClose">×</button>
+            <h3 id="modalTitle">Danke — wir haben Ihre Anfrage erhalten</h3>
+            <p id="modalBody">Wir melden uns in Kürze per E‑Mail mit einem Beispielreport.</p>
+            <div style="margin-top:14px; text-align:right">
+              <button class="btn" id="modalOk">Schließen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mapWrap" id="mapSection" style="margin-top:22px">
+      <div style="padding:18px 18px 10px 18px">
+        <div class="mapHeader">
+          <div>
+            <h2 id="mapTitle" style="margin:0">Wettbewerbs-Landkarte (Berlin)</h2>
+            <div class="small" id="mapHint" style="margin-top:6px">
+              Jeder Punkt ist eine Praxis aus öffentlichen OpenStreetMap-Daten. Zoom rein für Details.
+            </div>
+          </div>
+          <form class="mapSearch" id="mapSearchForm">
+            <input id="mapQuery" type="text" placeholder="z.B. Prenzlauer Berg" />
+            <button class="btn" id="mapSearchBtn" type="submit">Suchen</button>
+            <button class="btn" id="mapShowAllBtn" type="button">Alle anzeigen</button>
+          </form>
+        </div>
+        <div class="small" id="mapStatus" style="margin-top:8px"></div>
+      </div>
+
+      <div id="map"></div>
+      <div class="mapMeta">
+        <div><span id="pointCount">0</span> <span id="pointCountLabel">Praxen auf der Karte</span></div>
+        <div>
+          <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OSM Attribution</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:22px">
+      <h2 id="pricingTitle" style="margin-top:0">Preise</h2>
+      <div class="pricingGrid">
+        <div class="priceCard">
+          <div class="priceName" id="pricePilotName">Pilotmonat</div>
+          <div class="priceValue" id="pricePilotValue">99 €</div>
+          <div class="small" id="pricePilotDesc">Erster Report (3–5 Werktage) + 5 konkrete Empfehlungen.</div>
+        </div>
+        <div class="priceCard">
+          <div class="priceName" id="priceOngoingName">Danach monatlich</div>
+          <div class="priceValue" id="priceOngoingValue">149–299 €</div>
+          <div class="small" id="priceOngoingDesc">Abhängig von Praxisgröße / gewünschter Tiefe.</div>
+        </div>
+      </div>
+      <div class="ctaRow" style="margin-top:16px">
+        <a class="btn primary" href="#form" id="pricingCta">Beispielreport anfordern</a>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:22px">
+      <h2 id="faqTitle" style="margin-top:0">FAQ</h2>
+      <div class="faq">
+        <details open>
+          <summary id="faqQ1">Ist das legal?</summary>
+          <div class="small" id="faqA1">Ja — wir nutzen ausschließlich öffentliche Informationen.</div>
+        </details>
+        <details>
+          <summary id="faqQ2">Wie lange dauert der erste Report?</summary>
+          <div class="small" id="faqA2">In der Regel 3–5 Werktage.</div>
+        </details>
+        <details>
+          <summary id="faqQ3">Brauchen Sie Zugriff auf meine Accounts?</summary>
+          <div class="small" id="faqA3">Nein.</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="footer" id="legal"></div>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

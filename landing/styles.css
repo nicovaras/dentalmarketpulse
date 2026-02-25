@@ -1,0 +1,144 @@
+:root{
+  --bg:#0b1220;
+  --card:#101a33;
+  --text:#e9eefc;
+  --muted:#b7c3e6;
+  --accent:#7c5cff;
+  --accent2:#2dd4bf;
+  --border:rgba(255,255,255,0.12);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(124,92,255,0.35), transparent 60%),
+              radial-gradient(1000px 700px at 80% 20%, rgba(45,212,191,0.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+}
+a{color:inherit}
+.container{max-width:1080px; margin:0 auto; padding:48px 20px}
+.header{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:16px 0 40px 0;
+}
+.brand{font-weight:700; letter-spacing:0.2px}
+
+/* Make Leaflet controls match dark UI a bit better */
+.leaflet-control a{background:rgba(16,26,51,0.85); color:var(--text); border-color:var(--border)}
+.leaflet-control-zoom a{border-color:var(--border)}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{background:rgba(16,26,51,0.95); color:var(--text); border:1px solid rgba(255,255,255,0.10)}
+.leaflet-container a{color:#aab7ff}
+.lang{
+  display:flex; gap:8px;
+}
+.lang button{
+  background:transparent; color:var(--muted);
+  border:1px solid var(--border);
+  padding:8px 10px; border-radius:10px; cursor:pointer;
+}
+.lang button.active{color:var(--text); border-color:rgba(124,92,255,0.8); box-shadow:0 0 0 3px rgba(124,92,255,0.12)}
+
+.hero{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap:22px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr}
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  backdrop-filter: blur(10px);
+}
+
+h1{font-size:42px; line-height:1.05; margin:0 0 14px 0; letter-spacing:-0.3px}
+.subtitle{color:var(--muted); font-size:16px; line-height:1.55; margin:0 0 18px 0}
+
+.ctaRow{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:18px}
+.sampleLinks .btn{background:rgba(255,255,255,0.08)}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 14px; border-radius:12px;
+  border:1px solid rgba(255,255,255,0.12);
+  text-decoration:none;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  font-weight:600;
+}
+.btn.primary{
+  background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(45,212,191,0.75));
+  border-color: transparent;
+}
+.badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.badge{border:1px solid var(--border); border-radius:999px; padding:7px 10px; color:var(--muted); font-size:13px}
+
+.heroVisual{margin-top:16px; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.10)}
+.heroVisual img{display:block; width:100%; height:auto}
+
+.section{margin-top:22px}
+.section h2{margin:0 0 10px 0; font-size:18px}
+.ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.55}
+
+.mapWrap{padding:0; overflow:hidden}
+#map{height:520px; width:100%}
+.mapHeader{display:flex; gap:14px; align-items:flex-start; justify-content:space-between}
+.mapSearch{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+.mapSearch input{
+  min-width:220px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: rgba(16,26,51,0.55);
+  color: var(--text);
+}
+@media (max-width: 900px){
+  .mapHeader{flex-direction:column}
+  .mapSearch{justify-content:flex-start; width:100%}
+  .mapSearch input{flex:1; min-width:180px}
+}
+.mapMeta{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  padding:12px 16px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:13px;
+}
+.mapMeta a{color:var(--muted)}
+
+.form label{display:block; font-size:13px; color:var(--muted); margin:10px 0 6px}
+.form input, .form textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: rgba(16,26,51,0.55);
+  color: var(--text);
+  outline:none;
+}
+.form textarea{min-height:92px; resize:vertical}
+.small{color:var(--muted); font-size:13px; line-height:1.45}
+
+.pricingGrid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px}
+@media (max-width: 900px){.pricingGrid{grid-template-columns:1fr}}
+.priceCard{border:1px solid var(--border); border-radius:16px; padding:16px; background:rgba(16,26,51,0.35)}
+.priceName{color:var(--muted); font-weight:700}
+.priceValue{font-size:28px; font-weight:900; margin:8px 0 6px 0; letter-spacing:-0.4px}
+.faq details{border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:rgba(16,26,51,0.35)}
+.faq details+details{margin-top:10px}
+.faq summary{cursor:pointer; font-weight:700}
+.faq summary::marker{color:rgba(255,255,255,0.4)}
+
+.footer{margin-top:36px; color:var(--muted); font-size:13px}
+
+/* Modal confirmation */
+.modal{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(2,6,23,0.6); z-index:1200; opacity:0; pointer-events:none; transition:opacity .18s ease}
+.modal[aria-hidden="false"]{opacity:1; pointer-events:auto}
+.modalContent{background:linear-gradient(180deg, rgba(16,26,51,0.96), rgba(12,18,34,0.98)); border:1px solid var(--border); padding:20px; border-radius:12px; width:min(520px, 94%); color:var(--text)}
+.modalClose{position:absolute; right:14px; top:10px; background:transparent; border:0; color:var(--muted); font-size:22px; cursor:pointer}
+.modalContent h3{margin:0 0 8px 0}

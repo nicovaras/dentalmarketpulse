@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="84" viewBox="0 0 360 84" fill="none" role="img" aria-label="DentalMarketPulse logo">
+  <defs>
+    <linearGradient id="g" x1="18" y1="10" x2="82" y2="74" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="120" height="120" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Mark -->
+  <g filter="url(#shadow)">
+    <rect x="10" y="10" width="64" height="64" rx="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)"/>
+    <!-- Pulse line -->
+    <path d="M20 44h12l6-12 8 24 7-18 4 6h17" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Subtle tooth hint -->
+    <path d="M46 24c7 0 14 4 14 12 0 8-5 18-8 18-2 0-2-6-6-6s-4 6-6 6c-3 0-8-10-8-18 0-8 7-12 14-12Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(92 23)">
+    <text x="0" y="20" fill="#E9EEFC" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="22" font-weight="800" letter-spacing="0.2">DentalMarket</text>
+    <text x="152" y="20" fill="#2DD4BF" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="22" font-weight="800" letter-spacing="0.2">Pulse</text>
+    <text x="0" y="44" fill="#B7C3E6" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="600" letter-spacing="0.3">Berlin · Competitor Intelligence</text>
+  </g>
+</svg>

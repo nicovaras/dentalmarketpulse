@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none" role="img" aria-label="Illustration: map + dental pulse">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C5CFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2DD4BF" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="180" y1="240" x2="1000" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="700" rx="36" fill="rgba(255,255,255,0.03)"/>
+  <path d="M70 560C190 380 260 510 380 360C500 210 600 460 740 290C880 120 980 420 1120 250" stroke="rgba(255,255,255,0.10)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M70 560C190 380 260 510 380 360C500 210 600 460 740 290C880 120 980 420 1120 250" stroke="url(#bg)" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Pins -->
+  <g opacity="0.92">
+    <g transform="translate(240 180)">
+      <path d="M60 160c36-52 60-80 60-112 0-33-27-60-60-60s-60 27-60 60c0 32 24 60 60 112Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.16)"/>
+      <circle cx="60" cy="48" r="18" fill="url(#stroke)"/>
+    </g>
+    <g transform="translate(650 130)">
+      <path d="M60 160c36-52 60-80 60-112 0-33-27-60-60-60s-60 27-60 60c0 32 24 60 60 112Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.16)"/>
+      <circle cx="60" cy="48" r="18" fill="url(#stroke)"/>
+    </g>
+    <g transform="translate(930 260)">
+      <path d="M60 160c36-52 60-80 60-112 0-33-27-60-60-60s-60 27-60 60c0 32 24 60 60 112Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.16)"/>
+      <circle cx="60" cy="48" r="18" fill="url(#stroke)"/>
+    </g>
+  </g>
+
+  <!-- Pulse + tooth glyph -->
+  <g transform="translate(120 430)">
+    <rect x="0" y="0" width="560" height="190" rx="26" fill="rgba(16,26,51,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <path d="M50 110h90l40-64 55 128 55-100 30 36h190" stroke="url(#stroke)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M470 48c28 0 56 16 56 48 0 32-20 76-32 76-8 0-8-24-24-24s-16 24-24 24c-12 0-32-44-32-76 0-32 28-48 56-48Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)"/>
+  </g>
+</svg>
